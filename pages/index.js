@@ -106,7 +106,7 @@ export default function TransferPage() {
     return (
         <>
             <Head>
-                <title>Transfer Calculator - DhalWay</title>
+                <title>Transfer Calculator</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
 
