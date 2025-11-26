@@ -110,7 +110,7 @@ export default function TransferPage() {
             </div>
 
             {/* Chart Section */}
-            <div className="mb-4 glass rounded-2xl p-3">
+            <div className="mb-4 rounded-2xl p-3">
               <div className="h-24 w-full relative">
                 {isMounted && (
                   <ResponsiveContainer width="100%" height="100%">
