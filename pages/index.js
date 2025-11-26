@@ -92,7 +92,7 @@ export default function TransferPage() {
             <h1 className="text-3xl font-bold text-black mb-4">Transfer Calculator</h1>
 
             {/* Time Range Toggle */}
-            <div className="flex mb-6">
+            <div className="flex mb-3">
               <ToggleGroup
                 type="single"
                 value={timeRange}
