@@ -87,12 +87,12 @@ export default function TransferPage() {
       </Head>
 
       <div className="relative isolate grid h-dvh grid-rows-[auto,1fr] overflow-x-hidden overflow-y-auto lg:overflow-hidden bg-white">
-        <div className="flex items-center justify-center w-full h-full p-4 pt-8 scale-90 origin-top">
+        <div className="flex items-center justify-center w-full h-full p-4 pt-8">
           <div className="w-full max-w-md bg-white">
-            <h1 className="text-3xl font-bold text-black mb-4">Transfer Calculator</h1>
+            <h1 className="text-3xl font-bold text-black mb-2">Transfer Calculator</h1>
 
             {/* Time Range Toggle */}
-            <div className="flex mb-3">
+            <div className="flex mb-2">
               <ToggleGroup
                 type="single"
                 value={timeRange}
@@ -110,8 +110,8 @@ export default function TransferPage() {
             </div>
 
             {/* Chart Section */}
-            <div className="mb-4 rounded-2xl p-3">
-              <div className="h-24 w-full relative">
+            <div className="mb-2 rounded-2xl p-3">
+              <div className="h-20 w-full relative">
                 {isMounted && (
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={data}>
@@ -153,11 +153,11 @@ export default function TransferPage() {
             </div>
 
             {/* Input Section */}
-            <div className="relative space-y-6">
+            <div className="relative space-y-4">
               {/* From Input */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-600 ml-1">You send exactly</label>
-                <div className="glass rounded-2xl p-4 flex items-center justify-between group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
+                <div className="glass rounded-2xl p-3 flex items-center justify-between group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
                   <input
                     type="text"
                     value={amount}
@@ -193,7 +193,7 @@ export default function TransferPage() {
               </div>
 
               {/* Fee Breakdown / Timeline */}
-              <div className="pl-6 border-l-2 border-gray-100 ml-8 space-y-4 py-2 relative">
+              <div className="pl-6 border-l-2 border-gray-100 ml-8 space-y-2 py-1 relative">
                 {/* Fee */}
                 <div className="flex justify-between items-center text-sm">
                   <div className="flex items-center gap-2">
@@ -225,7 +225,7 @@ export default function TransferPage() {
               {/* To Input */}
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-600 ml-1">Recipient gets</label>
-                <div className="glass rounded-2xl p-4 flex items-center justify-between group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
+                <div className="glass rounded-2xl p-3 flex items-center justify-between group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
                   <input
                     type="text"
                     value={convertedAmount}
@@ -264,13 +264,13 @@ export default function TransferPage() {
 
 
             {/* Savings Info */}
-            <div className="mt-6 p-4 bg-gray-50 rounded-xl text-sm text-gray-600 flex items-start gap-3">
+            <div className="mt-3 p-4 bg-gray-50 rounded-xl text-sm text-gray-600 flex items-start gap-3">
               <div className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold mt-0.5">!</div>
               <p>You could save up to <span className="font-bold text-black">119.45 MYR</span> vs banks</p>
             </div>
 
             {/* Send Button */}
-            <Button className="w-full mt-4 bg-[#F8BC06] hover:bg-[#E5AD05] text-white font-bold h-10 rounded-xl text-md shadow-lg transition-colors duration-300">
+            <Button className="w-full mt-3 bg-[#F8BC06] hover:bg-[#E5AD05] text-white font-bold h-10 rounded-xl text-md shadow-lg transition-colors duration-300">
               Send
             </Button>
 
