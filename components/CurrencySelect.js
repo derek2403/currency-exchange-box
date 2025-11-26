@@ -74,7 +74,7 @@ export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, tr
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="fixed z-50 glass rounded-xl shadow-2xl overflow-hidden flex flex-col"
+                    className="fixed z-50 dropdown-box bg-white overflow-hidden flex flex-col"
                     style={{
                         bottom: position.bottom,
                         left: position.left,
