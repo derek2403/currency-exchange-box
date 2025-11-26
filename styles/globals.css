@@ -83,38 +83,102 @@
   --color-card: var(--card);
 
   @keyframes border-beam {
-    100% { offset-distance: 100%; }
+    100% {
+      offset-distance: 100%;
+    }
   }
+
   @keyframes shimmer-slide {
-    to { transform: translate(calc(100cqw - 100%), 0); }
+    to {
+      transform: translate(calc(100cqw - 100%), 0);
+    }
   }
+
   @keyframes spin-around {
-    0% { transform: translateZ(0) rotate(0); }
-    15%, 35% { transform: translateZ(0) rotate(90deg); }
-    65%, 85% { transform: translateZ(0) rotate(270deg); }
-    100% { transform: translateZ(0) rotate(360deg); }
+    0% {
+      transform: translateZ(0) rotate(0);
+    }
+
+    15%,
+    35% {
+      transform: translateZ(0) rotate(90deg);
+    }
+
+    65%,
+    85% {
+      transform: translateZ(0) rotate(270deg);
+    }
+
+    100% {
+      transform: translateZ(0) rotate(360deg);
+    }
   }
+
   @keyframes aurora {
-    from { background-position: 50% 50%, 50% 50%; }
-    to { background-position: 350% 50%, 350% 50%; }
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
   }
+
   @keyframes flow-dot {
-    0%, 100% { opacity: 0; transform: scale(0.5); }
-    50% { opacity: 1; transform: scale(1); }
+
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
+
   @keyframes flow-arrow {
-    0% { opacity: 0.2; transform: translateX(-2px); }
-    50% { opacity: 1; transform: translateX(0); }
-    100% { opacity: 0.2; transform: translateX(2px); }
+    0% {
+      opacity: 0.2;
+      transform: translateX(-2px);
+    }
+
+    50% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    100% {
+      opacity: 0.2;
+      transform: translateX(2px);
+    }
   }
+
   @keyframes card-left {
-    0% { opacity: 0; transform: translateX(-20px); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
+
   @keyframes card-right {
-    0% { opacity: 0; transform: translateX(20px); }
-    100% { opacity: 1; transform: translateX(0); }
+    0% {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -172,7 +236,15 @@ body {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }

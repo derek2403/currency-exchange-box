@@ -74,7 +74,7 @@ export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, tr
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="fixed z-50 bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden flex flex-col"
+                    className="fixed z-50 glass rounded-xl shadow-2xl overflow-hidden flex flex-col"
                     style={{
                         bottom: position.bottom,
                         left: position.left,
@@ -84,7 +84,7 @@ export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, tr
                     ref={dropdownRef}
                 >
                     {/* Search Bar */}
-                    <div className="p-3 border-b border-gray-100 sticky top-0 bg-white z-10">
+                    <div className="p-3 border-b border-white/10 sticky top-0 bg-transparent z-10">
                         <div className="relative">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                             <input
@@ -92,7 +92,7 @@ export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, tr
                                 placeholder="Search..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full pl-9 pr-4 py-2 bg-white border-2 border-green-900 rounded-lg text-sm focus:outline-none focus:border-green-700 transition-colors text-black placeholder:text-gray-400"
+                                className="w-full pl-9 pr-4 py-2 bg-white/20 border-2 border-transparent rounded-lg text-sm focus:outline-none focus:border-black/20 transition-colors text-black placeholder:text-black/40"
                                 autoFocus
                             />
                         </div>
@@ -109,8 +109,8 @@ export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, tr
                                         onClose();
                                     }}
                                     className={cn(
-                                        "w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left",
-                                        selectedCurrency === currency.code && "bg-gray-50"
+                                        "w-full flex items-center gap-3 px-4 py-3 hover:bg-black/5 transition-colors text-left",
+                                        selectedCurrency === currency.code && "bg-black/10"
                                     )}
                                 >
                                     <div className="w-6 h-6 rounded-full overflow-hidden relative flex-shrink-0 border border-gray-100">
