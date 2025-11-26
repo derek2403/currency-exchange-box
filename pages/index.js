@@ -270,7 +270,7 @@ export default function TransferPage() {
             </div>
 
             {/* Send Button */}
-            <Button className="w-full mt-4 bg-[#F8BC06] hover:bg-[#E5AD05] text-white font-bold h-10 rounded-xl text-sm shadow-lg transition-colors duration-300">
+            <Button className="w-full mt-4 bg-[#F8BC06] hover:bg-[#E5AD05] text-white font-bold h-10 rounded-xl text-md shadow-lg transition-colors duration-300">
               Send
             </Button>
 
