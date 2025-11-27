@@ -23,14 +23,14 @@ export const GlassEffect = ({
       <div
         className="absolute inset-0 z-0 overflow-hidden rounded-inherit rounded-3xl"
         style={{
-          backdropFilter: "blur(20px) saturate(120%)",
-          WebkitBackdropFilter: "blur(20px) saturate(120%)",
+          backdropFilter: "blur(40px) saturate(150%)",
+          WebkitBackdropFilter: "blur(40px) saturate(150%)",
           isolation: "isolate",
         }} />
       <div
         className="absolute inset-0 z-10 rounded-inherit rounded-3xl"
         style={{ 
-          background: "rgba(255, 255, 255, 0.7)",
+          background: "rgba(255, 255, 255, 0.6)",
         }} />
       <div
         className="absolute inset-0 z-20 rounded-inherit rounded-3xl overflow-hidden"

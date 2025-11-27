@@ -144,7 +144,7 @@ export default function TransferPage() {
 
               {/* To Input */}
               <div className="space-y-2">
-                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-al border-2 border-black/30">
+                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all border-2 border-black/30">
                   <label className="text-sm font-medium text-gray-600 mb-2 block">Recipient gets</label>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
