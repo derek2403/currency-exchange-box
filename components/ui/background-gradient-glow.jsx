@@ -16,11 +16,11 @@ export const BackgroundGradientGlow = ({ children, className, variant = "aurora"
     },
     goldenGlow: {
       background: `
-        radial-gradient(ellipse 85% 65% at 8% 8%, rgba(248, 188, 6, 0.35), transparent 60%),
-        radial-gradient(ellipse 75% 60% at 75% 35%, rgba(255, 235, 170, 0.45), transparent 62%),
-        radial-gradient(ellipse 70% 60% at 15% 80%, rgba(255, 214, 102, 0.38), transparent 62%),
-        radial-gradient(ellipse 70% 60% at 92% 92%, rgba(248, 188, 6, 0.32), transparent 62%),
-        linear-gradient(180deg, #FFF9ED 0%, #FFF5E8 100%)
+        radial-gradient(ellipse 85% 65% at 8% 8%, rgba(186, 230, 253, 0.15), transparent 60%),
+        radial-gradient(ellipse 75% 60% at 75% 35%, rgba(226, 232, 240, 0.12), transparent 62%),
+        radial-gradient(ellipse 70% 60% at 15% 80%, rgba(203, 213, 225, 0.10), transparent 62%),
+        radial-gradient(ellipse 70% 60% at 92% 92%, rgba(186, 230, 253, 0.12), transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #ffffff 100%)
       `,
     },
   };

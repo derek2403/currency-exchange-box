@@ -64,7 +64,7 @@ export default function TransferPage() {
         <GlassFilter />
         <div className="flex items-center justify-center w-full h-full p-4 pt-8 relative z-10">
           <div className="w-full max-w-md relative z-10">
-            <h1 className="text-4xl font-bold text-gray-900 mb-2" style={{ textShadow: '0 2px 4px rgba(248, 188, 6, 0.05)' }}>Transfer Calculator</h1>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2" style={{ textShadow: '0 2px 4px rgba(186, 230, 253, 0.3)' }}>Transfer Calculator</h1>
 
             {/* Exchange Rate Display */}
             <div className="mb-4 text-gray-800 font-medium">
@@ -75,7 +75,7 @@ export default function TransferPage() {
             <div className="relative space-y-4">
               {/* From Input */}
               <div className="space-y-2">
-                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all border-2 border-black/30">
+                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black/30">
                   <label className="text-sm font-medium text-gray-600 mb-2 block">You send exactly</label>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -145,7 +145,7 @@ export default function TransferPage() {
 
               {/* To Input */}
               <div className="space-y-2">
-                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all border-2 border-black/30">
+                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black/30">
                   <label className="text-sm font-medium text-gray-600 mb-2 block">Recipient gets</label>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
