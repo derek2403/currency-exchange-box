@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpDown, Info, ChevronDown } from "lucide-react";
 
 import { CurrencySelect } from "@/components/CurrencySelect";
+import { GlassEffect, GlassFilter } from "@/components/ui/liquid-glass";
 
 
 
@@ -57,10 +58,11 @@ export default function TransferPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className="relative isolate grid h-dvh grid-rows-[auto,1fr] overflow-x-hidden overflow-y-auto lg:overflow-hidden bg-white">
+      <div className="relative isolate grid h-dvh grid-rows-[auto,1fr] overflow-x-hidden overflow-y-auto lg:overflow-hidden" style={{ backgroundColor: '#f3f5f7' }}>
+        <GlassFilter />
         <div className="flex items-center justify-center w-full h-full p-4 pt-8">
-          <div className="w-full max-w-md bg-white">
-            <h1 className="text-3xl font-bold text-black mb-2">Transfer Calculator</h1>
+          <div className="w-full max-w-md bg-#f3f5f7">
+            <h1 className="text-4xl font-bold text-black mb-2">Transfer Calculator</h1>
 
             {/* Exchange Rate Display */}
             <div className="mb-4 text-black font-medium">
@@ -71,7 +73,7 @@ export default function TransferPage() {
             <div className="relative space-y-4">
               {/* From Input */}
               <div className="space-y-2">
-                <div className="glass rounded-2xl p-3 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
+                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
                   <label className="text-sm font-medium text-gray-600 mb-2 block">You send exactly</label>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -106,11 +108,11 @@ export default function TransferPage() {
                     selectedCurrency={fromCurrency.code}
                     triggerRef={fromTriggerRef}
                   />
-                </div>
+                </GlassEffect>
               </div>
 
               {/* Fee Breakdown / Timeline */}
-              <div className="pl-6 border-l-2 border-gray-100 ml-8 space-y-2 py-1 relative">
+              <div className="pl-6 border-l-2 border-black ml-8 space-y-2 py-1 relative">
                 {/* Fee */}
                 <div className="flex justify-between items-center text-sm">
                   <div className="flex items-center gap-2">
@@ -141,7 +143,7 @@ export default function TransferPage() {
 
               {/* To Input */}
               <div className="space-y-2">
-                <div className="glass rounded-2xl p-3 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
+                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
                   <label className="text-sm font-medium text-gray-600 mb-2 block">Recipient gets</label>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -176,14 +178,14 @@ export default function TransferPage() {
                     selectedCurrency={toCurrency.code}
                     triggerRef={toTriggerRef}
                   />
-                </div>
+                </GlassEffect>
               </div>
             </div>
 
 
 
             {/* Savings Info */}
-            <div className="mt-3 p-4 bg-gray-50 rounded-xl text-sm text-gray-600 flex items-start gap-3">
+            <div className="mt-3 p-4 bg-white rounded-xl text-sm text-gray-600 flex items-start gap-3">
               <div className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold mt-0.5">!</div>
               <p>You could save up to <span className="font-bold text-black">119.45 MYR</span> vs banks</p>
             </div>
