@@ -4,47 +4,18 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ArrowUpDown, Info, ChevronDown } from "lucide-react";
-import {
-  LineChart,
-  XAxis,
-  YAxis,
-  ResponsiveContainer,
-  Tooltip,
-  Line,
-} from 'recharts';
+
 import { CurrencySelect } from "@/components/CurrencySelect";
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group-1';
 
 
 
-// Mock Data for Chart
-const data = [
-  { value: 2.10 },
-  { value: 2.18 },
-  { value: 2.15 },
-  { value: 2.25 },
-  { value: 2.32 },
-  { value: 2.28 },
-  { value: 5.40 },
-  { value: 2.55 },
-  { value: 2.50 },
-  { value: 2.65 },
-  { value: 1.80 },
-  { value: 2.75 },
-  { value: 2.95 },
-  { value: 3.10 },
-  { value: 3.05 },
-  { value: 3.30 },
-  { value: 4.50 },
-  { value: 3.45 },
-  { value: 3.65 },
-  { value: 4.80 },
-];
+
+
 
 export default function TransferPage() {
   const [amount, setAmount] = useState("3,130.09");
   const [convertedAmount, setConvertedAmount] = useState("977.55");
-  const [timeRange, setTimeRange] = useState('1W');
+
 
   const [fromCurrency, setFromCurrency] = useState({ code: 'MYR', country: 'my' });
   const [toCurrency, setToCurrency] = useState({ code: 'SGD', country: 'sg' });
@@ -91,96 +62,42 @@ export default function TransferPage() {
           <div className="w-full max-w-md bg-white">
             <h1 className="text-3xl font-bold text-black mb-2">Transfer Calculator</h1>
 
-            {/* Time Range Toggle */}
-            <div className="flex mb-2">
-              <ToggleGroup
-                type="single"
-                value={timeRange}
-                onValueChange={(newValue) => {
-                  if (newValue) setTimeRange(newValue);
-                }}
-                className="glass p-1 rounded-lg"
-              >
-                <ToggleGroupItem value="1D" className="data-[state=on]:bg-white/20 data-[state=on]:text-[#F8BC06] data-[state=on]:font-bold text-black/60 hover:text-black transition-colors rounded-md px-3 py-1 text-xs">1D</ToggleGroupItem>
-                <ToggleGroupItem value="1W" className="data-[state=on]:bg-white/20 data-[state=on]:text-[#F8BC06] data-[state=on]:font-bold text-black/60 hover:text-black transition-colors rounded-md px-3 py-1 text-xs">1W</ToggleGroupItem>
-                <ToggleGroupItem value="1M" className="data-[state=on]:bg-white/20 data-[state=on]:text-[#F8BC06] data-[state=on]:font-bold text-black/60 hover:text-black transition-colors rounded-md px-3 py-1 text-xs">1M</ToggleGroupItem>
-                <ToggleGroupItem value="6M" className="data-[state=on]:bg-white/20 data-[state=on]:text-[#F8BC06] data-[state=on]:font-bold text-black/60 hover:text-black transition-colors rounded-md px-3 py-1 text-xs">6M</ToggleGroupItem>
-                <ToggleGroupItem value="1Y" className="data-[state=on]:bg-white/20 data-[state=on]:text-[#F8BC06] data-[state=on]:font-bold text-black/60 hover:text-black transition-colors rounded-md px-3 py-1 text-xs">1Y</ToggleGroupItem>
-              </ToggleGroup>
-            </div>
-
-            {/* Chart Section */}
-            <div className="mb-2 rounded-2xl p-3">
-              <div className="h-20 w-full relative">
-                {isMounted && (
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={data}>
-                      <Tooltip
-                        contentStyle={{
-                          backgroundColor: '#F8BC06',
-                          border: 'none',
-                          borderRadius: '8px',
-                          color: 'white',
-                          fontWeight: 'bold',
-                          fontSize: '12px',
-                          padding: '4px 8px'
-                        }}
-                        itemStyle={{ color: 'white' }}
-                        cursor={{ stroke: 'black', strokeWidth: 1, strokeDasharray: '4 4' }}
-                      />
-                      <Line
-                        type="monotone"
-                        dataKey="value"
-                        stroke="#F8BC06"
-                        strokeWidth={4}
-                        dot={false}
-                        activeDot={{ r: 6, fill: '#F8BC06', stroke: 'white', strokeWidth: 2 }}
-                      />
-                      <YAxis domain={['dataMin', 'dataMax']} hide />
-                    </LineChart>
-                  </ResponsiveContainer>
-                )}
-              </div>
-
-              <div className="flex justify-between text-xs text-black/60 mt-2">
-                <span>Oct 24</span>
-                <span>Today</span>
-              </div>
-
-              <div className="mt-4 text-black font-medium">
-                1 {fromCurrency.code} = 0.3149 {toCurrency.code}
-              </div>
+            {/* Exchange Rate Display */}
+            <div className="mb-4 text-black font-medium">
+              1 {fromCurrency.code} = 0.3149 {toCurrency.code}
             </div>
 
             {/* Input Section */}
             <div className="relative space-y-4">
               {/* From Input */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-600 ml-1">You send exactly</label>
-                <div className="glass rounded-2xl p-3 flex items-center justify-between group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
-                  <input
-                    type="text"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    className="bg-transparent text-black text-xl font-bold outline-none w-full placeholder:text-black/40"
-                  />
-                  <div className="flex items-center gap-2">
-                    <button
-                      ref={fromTriggerRef}
-                      onClick={() => setIsFromOpen(!isFromOpen)}
-                      className="flex items-center gap-2 text-black font-bold hover:bg-black/5 px-2 py-1 rounded-lg transition-colors"
-                    >
-                      <div className="w-6 h-6 rounded-full overflow-hidden relative flex items-center justify-center bg-white border border-black/10">
-                        <Image
-                          src={`https://flagcdn.com/w40/${fromCurrency.country}.png`}
-                          alt={fromCurrency.code}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      {fromCurrency.code}
-                      <ChevronDown className="w-4 h-4 text-black/60" />
-                    </button>
+                <div className="glass rounded-2xl p-3 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
+                  <label className="text-sm font-medium text-gray-600 mb-2 block">You send exactly</label>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <button
+                        ref={fromTriggerRef}
+                        onClick={() => setIsFromOpen(!isFromOpen)}
+                        className="flex items-center gap-2 text-black text-xl font-bold hover:bg-black/5 px-2 py-1 rounded-lg transition-colors"
+                      >
+                        <div className="w-9 h-9 rounded-full overflow-hidden relative flex items-center justify-center bg-white border border-black/10">
+                          <Image
+                            src={`https://flagcdn.com/w40/${fromCurrency.country}.png`}
+                            alt={fromCurrency.code}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        {fromCurrency.code}
+                        <ChevronDown className="w-5 h-5 text-black/60" />
+                      </button>
+                    </div>
+                    <input
+                      type="text"
+                      value={amount}
+                      onChange={(e) => setAmount(e.target.value)}
+                      className="bg-transparent text-black text-3xl font-bold outline-none w-full placeholder:text-black/40 text-right"
+                    />
                   </div>
                   <CurrencySelect
                     isOpen={isFromOpen}
@@ -224,31 +141,33 @@ export default function TransferPage() {
 
               {/* To Input */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-600 ml-1">Recipient gets</label>
-                <div className="glass rounded-2xl p-3 flex items-center justify-between group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
-                  <input
-                    type="text"
-                    value={convertedAmount}
-                    onChange={(e) => setConvertedAmount(e.target.value)}
-                    className="bg-transparent text-black text-xl font-bold outline-none w-full placeholder:text-black/40"
-                  />
-                  <div className="flex items-center gap-2">
-                    <button
-                      ref={toTriggerRef}
-                      onClick={() => setIsToOpen(!isToOpen)}
-                      className="flex items-center gap-2 text-black font-bold hover:bg-black/5 px-2 py-1 rounded-lg transition-colors"
-                    >
-                      <div className="w-6 h-6 rounded-full overflow-hidden relative flex items-center justify-center bg-white border border-black/10">
-                        <Image
-                          src={`https://flagcdn.com/w40/${toCurrency.country}.png`}
-                          alt={toCurrency.code}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      {toCurrency.code}
-                      <ChevronDown className="w-4 h-4 text-black/60" />
-                    </button>
+                <div className="glass rounded-2xl p-3 group focus-within:ring-2 focus-within:ring-[#F8BC06]/50 transition-all">
+                  <label className="text-sm font-medium text-gray-600 mb-2 block">Recipient gets</label>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <button
+                        ref={toTriggerRef}
+                        onClick={() => setIsToOpen(!isToOpen)}
+                        className="flex items-center gap-2 text-black text-xl font-bold hover:bg-black/5 px-2 py-1 rounded-lg transition-colors"
+                      >
+                        <div className="w-9 h-9 rounded-full overflow-hidden relative flex items-center justify-center bg-white border border-black/10">
+                          <Image
+                            src={`https://flagcdn.com/w40/${toCurrency.country}.png`}
+                            alt={toCurrency.code}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        {toCurrency.code}
+                        <ChevronDown className="w-5 h-5 text-black/60" />
+                      </button>
+                    </div>
+                    <input
+                      type="text"
+                      value={convertedAmount}
+                      onChange={(e) => setConvertedAmount(e.target.value)}
+                      className="bg-transparent text-black text-3xl font-bold outline-none w-full placeholder:text-black/40 text-right"
+                    />
                   </div>
                   <CurrencySelect
                     isOpen={isToOpen}
