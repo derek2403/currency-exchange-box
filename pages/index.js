@@ -8,6 +8,7 @@ import { ArrowUpDown, Info, ChevronDown } from "lucide-react";
 import { CurrencySelect } from "@/components/CurrencySelect";
 import { GlassEffect, GlassFilter } from "@/components/ui/liquid-glass";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
+import { BackgroundGradientGlow } from "@/components/ui/background-gradient-glow";
 
 
 
@@ -59,7 +60,7 @@ export default function TransferPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <div className="relative isolate grid h-dvh grid-rows-[auto,1fr] overflow-x-hidden overflow-y-auto lg:overflow-hidden glassy-background">
+      <BackgroundGradientGlow variant="goldenGlow" className="relative isolate grid h-dvh grid-rows-[auto,1fr] overflow-x-hidden overflow-y-auto lg:overflow-hidden">
         <GlassFilter />
         <div className="flex items-center justify-center w-full h-full p-4 pt-8 relative z-10">
           <div className="w-full max-w-md relative z-10">
@@ -198,7 +199,7 @@ export default function TransferPage() {
 
           </div>
         </div>
-      </div>
+      </BackgroundGradientGlow>
     </>
   );
 }
