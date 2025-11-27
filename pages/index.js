@@ -73,10 +73,10 @@ export default function TransferPage() {
 
             {/* Input Section */}
             <div className="relative space-y-4">
-              {/* From Input */}
-              <div className="space-y-2">
-                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black/30">
-                  <label className="text-sm font-medium text-gray-600 mb-2 block">You send exactly</label>
+                {/* From Input */}
+                <div className="space-y-2">
+                  <GlassEffect className="rounded-3xl p-2 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black">
+                  <label className="text-sm font-medium text-gray-600 ml-2 mb-1 block">You send exactly</label>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <button
@@ -100,7 +100,7 @@ export default function TransferPage() {
                       type="text"
                       value={amount}
                       onChange={(e) => setAmount(e.target.value)}
-                      className="bg-transparent text-black text-3xl font-bold outline-none w-full placeholder:text-black/40 text-right"
+                      className="bg-transparent text-black text-3xl font-bold outline-none w-full placeholder:text-black/40 text-right mr-2"
                     />
                   </div>
                   <CurrencySelect
@@ -143,10 +143,10 @@ export default function TransferPage() {
                 </div>
               </div>
 
-              {/* To Input */}
-              <div className="space-y-2">
-                <GlassEffect className="rounded-3xl p-4 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black/30">
-                  <label className="text-sm font-medium text-gray-600 mb-2 block">Recipient gets</label>
+                {/* To Input */}
+                <div className="space-y-2">
+                  <GlassEffect className="rounded-3xl p-2 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black shadow-xl">
+                  <label className="text-sm font-medium text-gray-600 ml-2 mb-1 block">Recipient gets</label>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <button
@@ -170,7 +170,7 @@ export default function TransferPage() {
                       type="text"
                       value={convertedAmount}
                       onChange={(e) => setConvertedAmount(e.target.value)}
-                      className="bg-transparent text-black text-3xl font-bold outline-none w-full placeholder:text-black/40 text-right"
+                      className="bg-transparent text-black text-3xl font-bold outline-none w-full placeholder:text-black/40 text-right mr-2"
                     />
                   </div>
                   <CurrencySelect
