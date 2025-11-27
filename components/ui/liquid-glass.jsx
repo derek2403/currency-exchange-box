@@ -10,7 +10,7 @@ export const GlassEffect = ({
   target = "_blank",
 }) => {
   const glassStyle = {
-    boxShadow: "0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1)",
+    boxShadow: "none",
     transitionTimingFunction: "cubic-bezier(0.175, 0.885, 0.32, 2.2)",
     ...style,
   };
@@ -23,18 +23,19 @@ export const GlassEffect = ({
       <div
         className="absolute inset-0 z-0 overflow-hidden rounded-inherit rounded-3xl"
         style={{
-          backdropFilter: "blur(3px)",
-          filter: "url(#glass-distortion)",
+          backdropFilter: "blur(20px) saturate(120%)",
+          WebkitBackdropFilter: "blur(20px) saturate(120%)",
           isolation: "isolate",
         }} />
       <div
-        className="absolute inset-0 z-10 rounded-inherit"
-        style={{ background: "rgba(255, 255, 255, 0.25)" }} />
+        className="absolute inset-0 z-10 rounded-inherit rounded-3xl"
+        style={{ 
+          background: "rgba(255, 255, 255, 0.7)",
+        }} />
       <div
         className="absolute inset-0 z-20 rounded-inherit rounded-3xl overflow-hidden"
         style={{
-          boxShadow:
-            "inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5), inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5)",
+          border: "1px solid rgba(255, 255, 255, 0.8)",
         }} />
 
       {/* Content */}
