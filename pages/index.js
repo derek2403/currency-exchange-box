@@ -187,7 +187,7 @@ export default function TransferPage() {
 
 
             {/* Savings Info */}
-            <div className="mt-3 text-sm text-gray-700 flex items-center gap-2">
+            <div className="mt-3 text-sm text-gray-700 flex items-center gap-2 ml-5">
               <div className="w-5 h-5 rounded-full bg-black text-white flex items-center justify-center text-xs font-bold flex-shrink-0">!</div>
               <p>You could save up to <span className="font-bold text-black">119.45 MYR</span> vs banks</p>
             </div>
