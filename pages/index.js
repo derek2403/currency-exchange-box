@@ -193,9 +193,9 @@ export default function TransferPage() {
             </div>
 
             {/* Send Button */}
-            <LiquidButton className="w-full mt-3 text-black font-bold text-lg">
+            <button className="w-full mt-3 bg-[#F8BC06] hover:bg-[#E5AD05] text-white font-bold h-12 rounded-4xl text-lg shadow-md transition-all duration-200 hover:shadow-lg active:scale-[0.98]">
               Send
-            </LiquidButton>
+            </button>
 
           </div>
         </div>
