@@ -6,9 +6,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpDown, Info, ChevronDown } from "lucide-react";
 
 import { CurrencySelect } from "@/components/CurrencySelect";
-import { GlassEffect, GlassFilter } from "@/components/ui/liquid-glass";
+import { GlassEffect } from "@/components/ui/liquid-glass";
 import { LiquidButton } from "@/components/ui/liquid-glass-button";
-import { BackgroundGradientGlow } from "@/components/ui/background-gradient-glow";
 
 
 
@@ -60,8 +59,7 @@ export default function TransferPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <BackgroundGradientGlow variant="goldenGlow" className="relative isolate grid h-dvh grid-rows-[auto,1fr] overflow-x-hidden overflow-y-auto lg:overflow-hidden">
-        <GlassFilter />
+      <div className="relative isolate grid h-dvh grid-rows-[auto,1fr] overflow-x-hidden overflow-y-auto lg:overflow-hidden bg-white">
         <div className="flex items-center justify-center w-full h-full p-4 pt-8 relative z-10">
           <div className="w-full max-w-md relative z-10">
             <h1 className="text-4xl font-bold text-gray-900 mb-2" style={{ textShadow: '0 2px 4px rgba(186, 230, 253, 0.3)' }}>Transfer Calculator</h1>
@@ -73,9 +71,9 @@ export default function TransferPage() {
 
             {/* Input Section */}
             <div className="relative space-y-4">
-                {/* From Input */}
-                <div className="space-y-2">
-                  <GlassEffect className="rounded-3xl p-2 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black">
+              {/* From Input */}
+              <div className="space-y-2">
+                <GlassEffect className="rounded-3xl p-2 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black">
                   <label className="text-sm font-medium text-gray-600 ml-2 mb-1 block">You send exactly</label>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -143,9 +141,9 @@ export default function TransferPage() {
                 </div>
               </div>
 
-                {/* To Input */}
-                <div className="space-y-2">
-                  <GlassEffect className="rounded-3xl p-2 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black shadow-xl">
+              {/* To Input */}
+              <div className="space-y-2">
+                <GlassEffect className="rounded-3xl p-2 group focus-within:ring-2 focus-within:ring-sky-400/50 transition-all border-2 border-black shadow-xl">
                   <label className="text-sm font-medium text-gray-600 ml-2 mb-1 block">Recipient gets</label>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -199,7 +197,7 @@ export default function TransferPage() {
 
           </div>
         </div>
-      </BackgroundGradientGlow>
+      </div>
     </>
   );
 }
