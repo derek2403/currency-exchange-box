@@ -107,6 +107,7 @@ export default function TransferPage() {
                     onSelect={setFromCurrency}
                     selectedCurrency={fromCurrency.code}
                     triggerRef={fromTriggerRef}
+                    direction="down"
                   />
                 </GlassEffect>
               </div>

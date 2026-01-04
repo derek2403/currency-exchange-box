@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Search, X } from 'lucide-react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -22,10 +23,15 @@ const currencies = [
     { code: 'IDR', name: 'Indonesian Rupiah', country: 'id' },
 ];
 
-export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, triggerRef }) {
+export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, triggerRef, direction = 'up' }) {
     const [searchQuery, setSearchQuery] = useState('');
-    const [position, setPosition] = useState({ bottom: 0, left: 0, width: 300 });
+    const [position, setPosition] = useState({});
+    const [mounted, setMounted] = useState(false);
     const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Filter currencies based on search
     const filteredCurrencies = currencies.filter(c =>
@@ -37,14 +43,23 @@ export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, tr
     useEffect(() => {
         if (isOpen && triggerRef?.current) {
             const rect = triggerRef.current.getBoundingClientRect();
-            // Position above the trigger, aligned right
-            setPosition({
-                bottom: window.innerHeight - rect.top + 8,
-                left: rect.left,
-                width: 300
-            });
+
+            if (direction === 'down') {
+                setPosition({
+                    top: rect.bottom + 8,
+                    left: rect.left,
+                    width: 300
+                });
+            } else {
+                // Position above the trigger
+                setPosition({
+                    bottom: window.innerHeight - rect.top + 8,
+                    left: rect.left,
+                    width: 300
+                });
+            }
         }
-    }, [isOpen, triggerRef]);
+    }, [isOpen, triggerRef, direction]);
 
     // Handle click outside
     useEffect(() => {
@@ -66,19 +81,19 @@ export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, tr
         if (!isOpen) setSearchQuery('');
     }, [isOpen]);
 
-    return (
+    if (!mounted) return null;
+
+    return createPortal(
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    initial={{ opacity: 0, y: direction === 'down' ? -10 : 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    exit={{ opacity: 0, y: direction === 'down' ? -10 : 10, scale: 0.95 }}
                     transition={{ duration: 0.2, ease: "easeOut" }}
                     className="fixed z-50 dropdown-box bg-white overflow-hidden flex flex-col"
                     style={{
-                        bottom: position.bottom,
-                        left: position.left,
-                        width: position.width,
+                        ...position,
                         maxHeight: '400px'
                     }}
                     ref={dropdownRef}
@@ -138,6 +153,7 @@ export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, tr
                     </div>
                 </motion.div>
             )}
-        </AnimatePresence>
+        </AnimatePresence>,
+        document.body
     );
 }
