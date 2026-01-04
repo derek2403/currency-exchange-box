@@ -40,7 +40,7 @@ export function CurrencySelect({ isOpen, onClose, onSelect, selectedCurrency, tr
             // Position above the trigger, aligned right
             setPosition({
                 bottom: window.innerHeight - rect.top + 8,
-                left: rect.right - 300, // Align right edge (assuming 300px width)
+                left: rect.left,
                 width: 300
             });
         }
